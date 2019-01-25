@@ -1,4 +1,4 @@
-FROM mylxqt
+FROM matheuscastello/ubuntu-lxqt
 
 RUN [ "cross-build-start" ]
 
@@ -26,9 +26,12 @@ RUN wget https://download.qt.io/archive/qt/5.11/5.11.1/single/qt-everywhere-src-
 	./configure -opensource -confirm-license && \
 	make -j8 && \
 	make install -j8 && \
-	PATH=/usr/local/Qt-5.11.1/bin:$PATH && \
-	export PATH && \
-	cd .. \
+	cd .. && \
 	rm -R qt-everywhere-src-5.11.1
+
+RUN echo "PATH=/usr/local/Qt-5.11.1/bin:$PATH" >> /root/.profile && \
+	echo "export PATH" >> /root/.profile && \
+	echo "PATH=/usr/local/Qt-5.11.1/bin:$PATH" >> /root/.bashrc && \
+	echo "export PATH" >> /root/.bashrc
 
 RUN [ "cross-build-end" ]
