@@ -1,5 +1,7 @@
 FROM bshibley/ubuntu-xorg:bionic
 
+RUN [ "cross-build-start" ]
+
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
     lxqt-core \
     qterminal \
@@ -8,3 +10,5 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
     openbox \
     falkon \
     && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
+
+RUN [ "cross-build-end" ]
