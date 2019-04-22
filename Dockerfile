@@ -1,7 +1,7 @@
 FROM arm32v7/ubuntu:18.04
 
 # run with
-# docker run --name codesys --network host -it --privileged matheuscastello/codesys
+# docker run --name codesys --network host -it matheuscastello/codesys:test
 
 # cross
 COPY qemu-arm-static /usr/bin
