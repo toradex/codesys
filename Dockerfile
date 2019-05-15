@@ -1,10 +1,7 @@
 FROM arm32v7/ubuntu:18.04
 
 # run with
-# docker run --name codesys --network host -it matheuscastello/codesys:test
-
-# cross
-COPY qemu-arm-static /usr/bin
+# docker run --name codesys -it matheuscastello/codesys:test
 
 # install deps
 RUN apt-get -y update && apt-get install -y  --no-install-recommends \
@@ -19,6 +16,13 @@ COPY Platforms /runtime/Platforms/
 WORKDIR /runtime/Platforms/Linux/Bin/
 RUN chmod +x codesyscontrol && \
 	chmod +x entrypoint.sh
+
+# expose the ports
+EXPOSE 11740
+EXPOSE 1217
+EXPOSE 8080
+EXPOSE 443
+EXPOSE 4840
 
 # run
 CMD ["./entrypoint.sh"]
