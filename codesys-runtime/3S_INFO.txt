@@ -1,0 +1,8 @@
+Vendor Name			: Toradex AG
+Operating System	: Linux
+VendorID			: 0x169e
+TargetID			: 0xeeef
+Mask				: 0x0000
+Platform			: ARM
+Type				: 0x1006
+Licenses			: WebVisu, Softmotion, EtherCAT Master, OPC UA Server, 
