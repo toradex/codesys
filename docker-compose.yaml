@@ -34,7 +34,7 @@ services:
 
   kiosk:
     image: torizon/arm32v7-debian-kiosk-mode-browser:latest
-    command: --window-mode http://portainer:9000
+    command: --window-mode http://localhost:8080
     volumes:
       - type: bind
         source: /tmp
@@ -52,7 +52,3 @@ services:
     device_cgroup_rules:
       # ... for /dev/dri devices
       - 'c 226:* rmw'
-
-
-volumes:
-  portainer_data:
